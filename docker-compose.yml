@@ -1,0 +1,55 @@
+version: '2'
+services:
+  app:
+    container_name: app
+    user: 1000:1000
+    environment:
+      - "MYSQL_HOST=127.0.0.1"
+      - "MYSQL_PORT=3306"
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    restart: always
+
+    volumes:
+      - static:/app/static
+    build:
+      context: .
+      args:
+        PROJECT_NAME: test_project
+      dockerfile: Dockerfile
+    command: >
+        sh -c "python manage.py collectstatic --no-input && \
+               python manage.py migrate && \
+               /start.sh"
+    networks:
+      - overlay_app
+  ssl:
+    container_name: auto_ssl
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - app
+    restart: always
+    volumes:
+      - ssl_data:/etc/resty-auto-ssl
+      - static:/app/static
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - overlay_app
+
+volumes:
+  ssl_data:
+  static:
+
+networks:
+  overlay_app:
+    driver: "bridge"
+
+
