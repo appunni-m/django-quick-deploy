@@ -34,11 +34,21 @@ But incase you need support for local static files, please keep it like this.
 `ALLOWED_DOMAINS=localhost`
 `SITES=localhost=app:8080`
 
-3. Run `docker-compose up -d` and open https://localhost/admin in your browser or https://domain.com/admin
+3. Run `docker-compose up -d --build` and open https://localhost/admin in your browser or https://domain.com/admin
 
 # Initializations
 
-In order for production projects there are options to connect to Databases,
+For production projects there are options to connect to Databases,
 Currently this is a preview project, soon I will be adding functionality to help support those features
 
-Inorder to create a new user use 
+Inorder to create a new user use:
+
+```
+docker-compose exec app python manage.py createsuperuser
+```
+
+Access shell using
+
+```
+docker-compose exec app python manage.py shell
+```
