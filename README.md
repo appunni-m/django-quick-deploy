@@ -3,15 +3,17 @@ This is a small repository to quickly deploy your django app using Docker Nginx 
 
 # Getting Started
 
-1. Set your project name `export REPO_NAME=generic_repo`
+1. Install [docker](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/) 
 
-2. Clone this repository `git clone https://github.com/appunni-dishq/django-quick-deploy.git` ${REPO_NAME}
+2. Set your project name `export REPO_NAME=generic_repo`
 
-3. (!Caution) Delete this .git repo files `rm -rf  ${PROJECT_NAME}/.git/`
+3. Clone this repository `git clone https://github.com/appunni-dishq/django-quick-deploy.git` ${REPO_NAME}
 
-3. Copy your existing django project into this new project`cp /path/to/django-project ${REPO_NAME}/ --recursive`
+4. (!Caution) Delete this .git repo files `rm -rf  ${PROJECT_NAME}/.git/`
 
-4. Optional - Copy your git files into the new project or `git init`
+5. Copy your existing django project into this new project`cp /path/to/django-project ${REPO_NAME}/ --recursive`
+
+6. Optional - Copy your git files into the new project or `git init`
 
 
 # Prerequisites
