@@ -36,7 +36,9 @@ But incase you need support for local static files, please keep it like this.
 `ALLOWED_DOMAINS=localhost`
 `SITES=localhost=app:8080`
 
-3. Run `docker-compose up -d --build` and open https://localhost/admin in your browser or https://domain.com/admin
+3. Run `PROJECT_NAME=test_project docker-compose up -d --build` and open https://localhost/admin in your browser or https://domain.com/admin
+
+NOTE: change test_project to your django project's name
 
 # Initializations
 
