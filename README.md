@@ -34,6 +34,7 @@ But incase you need support for local static files, please keep it like this.
 2. Below env vars are required by default replace localhost with your original domain name for deployment in production.
 
 `ALLOWED_DOMAINS=localhost`
+
 `SITES=localhost=app:8080`
 
 3. Run `PROJECT_NAME=test_project docker-compose up -d --build` and open https://localhost/admin in your browser or https://domain.com/admin
